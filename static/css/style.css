@@ -1,0 +1,130 @@
+.container h1 {
+    text-align: center;
+}
+
+.loader-container {
+    display: none;
+    /*background-image: url("../img/gorjeo.png");*/
+    background-repeat: no-repeat;
+    background-size: 60px;
+    background-position: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+.loader-container .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: solid 4px transparent;
+    border-top-color: #fbf05f;
+    border-left-color: #fbf05f;
+    border-radius: 50%;
+    animation: loader 1.4s linear infinite;
+}
+
+.loader-container .loader2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 70%;
+    border: solid 4px transparent;
+    border-top-color: #2a307b;
+    border-left-color: #2a307b;
+    border-radius: 50%;
+    animation: loader2 1.2s linear infinite;
+}
+
+@keyframes loader {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes loader2 {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+table#mitabla {
+    border-collapse: collapse;
+}
+
+td.bajo {
+    background-color: #ff455e;
+}
+
+td.medio {
+    background-color: #d63e3e;
+}
+
+td.alto {
+    background-color: #940014;
+}
+
+td.a {
+    background-color: #243ff0;
+}
+
+td.b {
+    background-color: #1726cf;
+}
+
+td.c {
+    background-color: #100085;
+}
+
+td.aaa {
+    background-color: #f8ff94;
+}
+
+td.bbb {
+    background-color: #fff64f;
+}
+
+td.ccc {
+    background-color: #ffff00;
+}
+
+thead.cabecera tr td {
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 15px;
+}
+
+tfoot.pie tr td {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Georgia;
+    padding: 2px;
+}
+
+tbody.cuerpo tr td {
+    color: #ebebeb;
+    padding: 10px;
+}
+
+td {
+    border-style: solid;
+    border-color: #cccccc;
+    border-width: 1px;
+}
