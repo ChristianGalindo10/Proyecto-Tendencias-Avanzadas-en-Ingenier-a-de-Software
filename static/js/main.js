@@ -10,6 +10,7 @@ $("#queryForm").submit(function (e) {
         u += query;
     }
     $(".loader-container").css("display", "block");
+    $("#results").html("");
     $.ajax({
         url: u,
         type: "POST",

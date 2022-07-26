@@ -29,6 +29,7 @@ def getInfo(query):
     pagination = [ int(s) for s in pagination.split() if s.isdigit()][0]
 
     records = []
+    data_products = {}
     
     #for _product in range(1,pagination+1):
     for _product in range(1,2+1):
@@ -61,9 +62,59 @@ def getInfo(query):
         if _product != pagination:
             driver.execute_script("arguments[0].click()", next_page_button)
 
-    df = pd.concat(records)
-    df.to_csv("PRODUCTOS.csv")
-    time.sleep(4)
+def getTrends():
+    global my_json
+    my_json["products"].clear()
+    driver =  webdriver.Chrome("./chromedriver")
+    driver.get("https://tendencias.mercadolibre.com.co/")
+    #search_bar = driver.find_element(By.CLASS_NAME,"nav-search-input")
+    #search_bar.clear()
+    #search_bar.send_keys(query)
+    #search_bar.send_keys(Keys.RETURN)
+
+    #pagination = driver.find_element(By.XPATH,"//li[@class='andes-pagination__page-count']").text
+    #pagination = [ int(s) for s in pagination.split() if s.isdigit()][0]
+
+    trends = driver.find_elements(By.CLASS_NAME,"ui-search-carousel")
+    print(len(trends))
+
+    records = []
+    data_products = {}
+    
+    #for _product in range(1,pagination+1):
+    # for _product in range(1,2+1):
+    #     if _product != pagination:
+    #         next_page_button = driver.find_element(By.CSS_SELECTOR,"a[title='Siguiente']")
+
+    #     title_products = driver.find_elements(By.XPATH,"//h2[@class='ui-search-item__title']")
+    #     title_products = [     title.text  for title in title_products            ]
+
+
+    #     price_products = driver.find_elements(By.XPATH,"//li[@class='ui-search-layout__item']//div[@class='ui-search-result__content-columns']//div[@class='ui-search-result__content-column ui-search-result__content-column--left']/div[1]/div//div[@class='ui-search-price__second-line']//span[@class='price-tag-amount']//span[2]")
+    #     price_products = [ price.text for price in price_products   ]
+
+
+    #     links_products = driver.find_elements(By.XPATH,"//div[@class='ui-search-item__group ui-search-item__group--title']//a[1]")
+    #     links_products = [ link.get_attribute("href") for link in links_products   ]
+
+
+    #     data_products = {
+
+    #         "name_product":title_products,
+    #         "price_product":price_products,
+    #         "link_product":links_products
+
+    #     }
+    #     my_json["products"].append(data_products)
+
+    #     df =  pd.DataFrame(data_products)
+    #     records.append(df)
+    #     if _product != pagination:
+    #         driver.execute_script("arguments[0].click()", next_page_button)
+
+    # df = pd.concat(records)
+    # df.to_csv("PRODUCTOS.csv")
+    time.sleep(10)
     driver.close()
     return my_json
 
@@ -89,5 +140,6 @@ def get():
 
 if __name__ == '__main__':
     app.run()
+    #getTrends()
 
 
