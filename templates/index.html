@@ -43,12 +43,30 @@
     <div class="loader"></div>
     <div class="loader2"></div>
   </div>
+
   <div id="results">
+
     <!-- <div id="tweet_heading"></div>
     <div id="tweet_body"></div> -->
   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script  src="https:://d3js.org/d3.v7.min.js"></script>
+  <script>
+    const pieChartDataUrl = "{{ url_for('get_piechart_data') }}";
+    const barChartDataUrl = "{{ url_for('get_barchart_data') }}";
+</script>
+<script src="{{ url_for('static', filename='js/pieChart.js') }}"></script>
+<script src="{{ url_for('static', filename='js/barChart.js') }}"></script>
+<script src="{{ url_for('static', filename='js/updateBarChart.js') }}"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+
+</body>
+
+
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>

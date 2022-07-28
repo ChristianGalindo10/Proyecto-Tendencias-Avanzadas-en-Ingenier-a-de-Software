@@ -9,11 +9,11 @@ from nltk.util import pr
 import forms
 from flask_cors import CORS
 
+
 app = Flask(__name__)
 CORS(app)
 
 my_json = {"products": []}
-
 
 def getInfo(query):
     global my_json
@@ -61,7 +61,10 @@ def getInfo(query):
         records.append(df)
         if _product != pagination:
             driver.execute_script("arguments[0].click()", next_page_button)
+
     return my_json
+
+
 
 def getTrends():
     global my_json
@@ -123,6 +126,27 @@ def getTrends():
 def index():
     keyword_form = forms.KeywordForm()
     return render_template('index.html', form=keyword_form)
+
+@app.route('/get_piechart_data')
+def get_piechart_data():
+        data_products = {
+
+            "name_product":["a","b","c","d","e","f"],
+            "price_product":[0.1,0.2,0.3,0.15,0.15,0.1],
+
+        }
+        return data_products
+
+@app.route('/get_barchart_data')
+def get_barchart_data():
+        data_products = {
+
+            "name_product":["a","b","c","d","e","f"],
+            "price_product":[100,200,300,100,500,400],
+
+        }
+
+        return data_products
 
 @app.route('/results_template')
 def tweets_template():
