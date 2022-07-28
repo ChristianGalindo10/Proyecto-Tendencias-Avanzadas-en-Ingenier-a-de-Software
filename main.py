@@ -61,6 +61,7 @@ def getInfo(query):
         records.append(df)
         if _product != pagination:
             driver.execute_script("arguments[0].click()", next_page_button)
+    return my_json
 
 def getTrends():
     global my_json
