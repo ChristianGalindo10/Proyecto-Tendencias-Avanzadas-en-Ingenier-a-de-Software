@@ -128,3 +128,7 @@ td {
     border-color: #cccccc;
     border-width: 1px;
 }
+
+.bar {
+    fill: steelblue;
+}
